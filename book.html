@@ -705,33 +705,33 @@
                       
                       <div class="form-section-title">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                        <span>01 &bull; Guest Information</span>
+                        <span>Guest Contact Details</span>
                       </div>
 
                       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin-bottom: var(--space-md);">
                         <div class="form-group">
-                          <label for="client-name" class="form-label">Full Name *</label>
-                          <input type="text" id="client-name" class="form-input" placeholder="e.g. Sarah Miller" required>
+                          <label for="client-name" class="form-label">Full Name <span class="required-star">*</span></label>
+                          <input type="text" id="client-name" class="form-control" placeholder="e.g. Sarah Miller" required>
                         </div>
                         <div class="form-group">
-                          <label for="client-phone" class="form-label">Phone Number *</label>
-                          <input type="tel" id="client-phone" class="form-input" placeholder="(570) 555-0123" required>
+                          <label for="client-phone" class="form-label">Phone Number <span class="required-star">*</span></label>
+                          <input type="tel" id="client-phone" class="form-control" placeholder="(570) 555-0123" required>
                         </div>
                       </div>
 
                       <div class="form-group" style="margin-bottom: var(--space-xl);">
-                        <label for="client-email" class="form-label">Email Address (For Booking Voucher &amp; Calendar Invite) *</label>
-                        <input type="email" id="client-email" class="form-input" placeholder="sarah@example.com" required>
+                        <label for="client-email" class="form-label">Email Address (For Booking Confirmation &amp; Reminder) <span class="required-star">*</span></label>
+                        <input type="email" id="client-email" class="form-control" placeholder="sarah@example.com" required>
                       </div>
 
                       <div class="form-section-title">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        <span>02 &bull; Sanctuary Notes &amp; Preferences</span>
+                        <span>Treatment Preferences &amp; Sensitivities</span>
                       </div>
 
                       <div class="form-group" style="margin-bottom: var(--space-lg);">
                         <label for="client-notes" class="form-label">Allergies, Sensitivities, Pressure or Hair/Skin Goals (Optional)</label>
-                        <textarea id="client-notes" class="form-textarea" rows="3" placeholder="Tell us if you have any sensitivities, scalp preferences, pressure requests, or silence preferences..."></textarea>
+                        <textarea id="client-notes" class="form-control form-textarea" rows="3" placeholder="Tell us if you have any sensitivities, scalp preferences, pressure requests, or silence preferences..."></textarea>
                       </div>
 
                       <!-- Sanctuary Policy Callout -->
