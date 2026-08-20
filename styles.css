@@ -4157,3 +4157,431 @@ textarea.form-control {
 }
 
 
+
+/* --------------------------------------------------------------------------
+   26. MASTER TREATMENTS DIRECTORY INDEX (ARUNA / EDITORIAL BLUEPRINT)
+   -------------------------------------------------------------------------- */
+.directory-hero {
+  position: relative;
+  background-color: #141E1C;
+  color: #FAF8F5;
+  padding: 5rem 0 4rem 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+}
+
+.directory-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(197, 168, 128, 0.12) 0%, transparent 65%),
+              radial-gradient(circle at bottom left, rgba(34, 48, 44, 0.4) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.directory-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.directory-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+  font-weight: 500;
+  color: #FAF8F5;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-md);
+}
+
+.directory-hero-title em {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+.directory-hero-lead {
+  font-size: var(--text-lg);
+  color: rgba(250, 248, 245, 0.85);
+  line-height: 1.6;
+  max-width: 720px;
+  margin-bottom: var(--space-xl);
+}
+
+/* Sticky Category Filter Bar */
+.directory-filter-sticky {
+  position: sticky;
+  top: 4.75rem;
+  z-index: 90;
+  background-color: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-forest-border);
+  padding: 0.85rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.directory-pill-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+
+.directory-pill-list::-webkit-scrollbar {
+  display: none;
+}
+
+.directory-pill-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.1rem;
+  background-color: var(--color-cream-card);
+  border: 1px solid var(--color-cream-border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-forest);
+  white-space: nowrap;
+  transition: all var(--duration-fast) var(--ease-out);
+  text-decoration: none;
+}
+
+.directory-pill-link:hover {
+  background-color: var(--color-forest);
+  color: #FAF8F5;
+  border-color: var(--color-forest);
+  transform: translateY(-1px);
+}
+
+.directory-pill-link.active {
+  background-color: var(--color-forest);
+  color: var(--color-gold);
+  border-color: var(--color-forest);
+}
+
+/* Department Editorial Block */
+.department-block {
+  padding: 4.5rem 0;
+  border-bottom: 1px solid var(--color-cream-border);
+  scroll-margin-top: 100px;
+}
+
+.department-block:nth-child(even) {
+  background-color: var(--color-cream-subtle);
+}
+
+.dept-header-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.dept-header-split.reverse {
+  direction: rtl;
+}
+
+.dept-header-split.reverse > * {
+  direction: ltr;
+}
+
+.dept-media-frame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--color-cream-border);
+}
+
+.dept-media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms ease;
+}
+
+.dept-media-frame:hover img {
+  transform: scale(1.04);
+}
+
+.dept-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.dept-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold-hover);
+  margin-bottom: var(--space-xs);
+}
+
+.dept-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 500;
+  color: var(--color-forest);
+  line-height: 1.15;
+  margin-bottom: var(--space-sm);
+}
+
+.dept-lead {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.dept-meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-cream-card);
+  border: 1px solid var(--color-cream-border);
+  border-radius: var(--radius-lg);
+}
+
+.dept-price-badge {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-forest);
+}
+
+.dept-price-badge span {
+  font-size: var(--text-xs);
+  font-family: var(--font-sans);
+  color: var(--color-text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-left: 0.35rem;
+}
+
+/* Department Rates 2-Column Grid */
+.dept-rates-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl) var(--space-3xl);
+  margin-top: var(--space-xl);
+}
+
+.dept-rate-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px dashed var(--color-cream-border);
+  position: relative;
+}
+
+.dept-rate-info {
+  display: flex;
+  flex-direction: column;
+  padding-right: var(--space-md);
+}
+
+.dept-rate-name {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-forest);
+  line-height: 1.3;
+}
+
+.dept-rate-sub {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: 0.2rem;
+  line-height: 1.4;
+}
+
+.dept-rate-price {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  white-space: nowrap;
+}
+
+/* Combination Showcase (Two services. One afternoon at Eden.) */
+.combo-section {
+  background-color: var(--color-cream-subtle);
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--color-cream-border);
+}
+
+.combo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.combo-card {
+  background-color: var(--color-cream-card);
+  border: 1px solid var(--color-cream-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.combo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-gold);
+}
+
+.combo-media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+}
+
+.combo-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.combo-card:hover .combo-media img {
+  transform: scale(1.05);
+}
+
+.combo-content {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.combo-badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold-hover);
+  margin-bottom: var(--space-xs);
+}
+
+.combo-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-forest);
+  margin-bottom: var(--space-xs);
+}
+
+.combo-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin-bottom: var(--space-lg);
+  flex-grow: 1;
+}
+
+.combo-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-cream-border);
+}
+
+.combo-price {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-forest);
+}
+
+.combo-save {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: #2D6A4F;
+  background: rgba(45, 106, 79, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+/* Pricing Policy Bar (3 Pillars) */
+.pricing-policy-bar {
+  background-color: #141E1C;
+  color: #FAF8F5;
+  padding: 3.5rem 0;
+}
+
+.pricing-policy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2xl);
+}
+
+.policy-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.policy-num {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: var(--space-xs);
+}
+
+.policy-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: #FAF8F5;
+  margin-bottom: var(--space-xs);
+}
+
+.policy-desc {
+  font-size: var(--text-sm);
+  color: rgba(250, 248, 245, 0.75);
+  line-height: 1.55;
+}
+
+/* Responsive adjustments for Section 26 */
+@media (max-width: 1024px) {
+  .dept-header-split,
+  .dept-header-split.reverse {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    direction: ltr;
+  }
+  .dept-rates-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  .combo-grid {
+    grid-template-columns: 1fr;
+  }
+  .pricing-policy-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+}
