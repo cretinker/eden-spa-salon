@@ -2054,6 +2054,19 @@ textarea.form-control {
   border-color: var(--color-forest);
 }
 
+.slot-label.slot-disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.slot-label.slot-disabled .slot-box {
+  background-color: #ECEAE5;
+  border-color: #D6D2C9;
+  color: #9C9689;
+  text-decoration: line-through;
+}
+
 /* Wizard Navigation Button Pods */
 .wizard-nav-actions {
   display: flex;

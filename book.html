@@ -581,41 +581,101 @@
           <div class="wizard-panel wizard-panel-4">
             <div class="double-bezel">
               <div class="double-bezel-inner">
-                <h3 style="margin-bottom: var(--space-xs); color: var(--color-forest);">Step 4: Pick Preferred Date &amp; Time Slot</h3>
-                <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-lg);">
-                  Our salon operates Tuesday through Saturday (Closed Sun &amp; Mon):
-                </p>
-
-                <div style="margin-bottom: var(--space-lg);">
-                  <label for="booking-date" style="display: block; font-size: var(--text-sm); font-weight: 600; color: var(--color-forest); margin-bottom: var(--space-xs);">Select Date:</label>
-                  <input type="date" id="booking-date" class="form-input" style="max-width: 320px; background-color: var(--color-cream-card);" required>
+                <div class="section-title-wrap" style="text-align: left; margin-bottom: var(--space-md);">
+                  <div class="eyebrow">Step 4</div>
+                  <h3 style="margin-bottom: var(--space-xs); color: var(--color-forest);">Select Preferred Date &amp; Arrival Window</h3>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: 0;">
+                    Please pick an upcoming date (Tue&ndash;Sat). Available arrival windows automatically conform to our operating hours.
+                  </p>
                 </div>
 
-                <div>
-                  <span style="display: block; font-size: var(--text-sm); font-weight: 600; color: var(--color-forest); margin-bottom: var(--space-xs);">Available Arrival Windows:</span>
-                  <div class="slot-grid">
-                    <label class="slot-label"><input type="radio" name="booking-time" value="09:00 AM" class="slot-input" checked><div class="slot-box">09:00 AM</div></label>
-                    <label class="slot-label"><input type="radio" name="booking-time" value="10:30 AM" class="slot-input"><div class="slot-box">10:30 AM</div></label>
-                    <label class="slot-label"><input type="radio" name="booking-time" value="12:00 PM" class="slot-input"><div class="slot-box">12:00 PM</div></label>
-                    <label class="slot-label"><input type="radio" name="booking-time" value="01:30 PM" class="slot-input"><div class="slot-box">01:30 PM</div></label>
-                    <label class="slot-label"><input type="radio" name="booking-time" value="03:00 PM" class="slot-input"><div class="slot-box">03:00 PM</div></label>
-                    <label class="slot-label"><input type="radio" name="booking-time" value="04:30 PM" class="slot-input"><div class="slot-box">04:30 PM</div></label>
-                    <label class="slot-label"><input type="radio" name="booking-time" value="06:00 PM (Thu)" class="slot-input"><div class="slot-box">06:00 PM</div></label>
+                <div style="margin-bottom: var(--space-lg); max-width: 420px;">
+                  <label for="booking-date" style="display: block; font-size: var(--text-sm); font-weight: 700; color: var(--color-forest); margin-bottom: var(--space-xs);">
+                    Select Date (Past dates disabled):
+                  </label>
+                  <input type="date" id="booking-date" class="form-input" style="background-color: var(--color-cream-card); font-weight: 600; font-size: var(--text-base);" required>
+                  <div id="date-validation-message" style="margin-top: var(--space-xs); font-size: var(--text-xs); color: var(--color-text-muted);">
+                    Select any Tuesday through Saturday
                   </div>
                 </div>
 
-                <div style="margin-top: var(--space-lg); background-color: var(--color-cream-subtle); padding: var(--space-md); border-radius: var(--radius-md); font-size: var(--text-xs); color: var(--color-text-secondary);">
-                  <strong>Operating Hours Note:</strong> Tue-Wed 9am-6pm &bull; Thu 9am-7pm &bull; Fri 9am-5pm &bull; Sat 9am-3pm. Same-day appointments may also be reserved by calling <strong>570-380-1300</strong>.
+                <!-- Dynamic Day Hours Badge -->
+                <div id="day-hours-banner" style="display: flex; align-items: center; gap: 8px; background-color: var(--color-cream-subtle); border-left: 3px solid var(--color-gold); padding: var(--space-md); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin-bottom: var(--space-xl); font-size: var(--text-xs); color: var(--color-forest);">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span id="day-hours-text"><strong>Spa Working Hours:</strong> Tue-Wed 9am-6pm | Thu 9am-7pm | Fri 9am-5pm | Sat 9am-3pm (Closed Sun &amp; Mon)</span>
+                </div>
+
+                <div>
+                  <span style="display: block; font-size: var(--text-sm); font-weight: 700; color: var(--color-forest); margin-bottom: var(--space-sm);">
+                    Available Arrival Windows for Selected Date:
+                  </span>
+                  <div class="slot-grid" id="time-slots-container">
+                    <label class="slot-label" data-time="09:00 AM" data-days="2,3,4,5,6">
+                      <input type="radio" name="booking-time" value="09:00 AM" class="slot-input" checked>
+                      <div class="slot-box">
+                        <div style="font-weight: 700;">09:00 AM</div>
+                        <div style="font-size: 0.65rem; color: var(--color-text-muted);">Morning Open</div>
+                      </div>
+                    </label>
+
+                    <label class="slot-label" data-time="10:30 AM" data-days="2,3,4,5,6">
+                      <input type="radio" name="booking-time" value="10:30 AM" class="slot-input">
+                      <div class="slot-box">
+                        <div style="font-weight: 700;">10:30 AM</div>
+                        <div style="font-size: 0.65rem; color: var(--color-text-muted);">Mid-Morning</div>
+                      </div>
+                    </label>
+
+                    <label class="slot-label" data-time="12:00 PM" data-days="2,3,4,5,6">
+                      <input type="radio" name="booking-time" value="12:00 PM" class="slot-input">
+                      <div class="slot-box">
+                        <div style="font-weight: 700;">12:00 PM</div>
+                        <div style="font-size: 0.65rem; color: var(--color-text-muted);">Mid-Day</div>
+                      </div>
+                    </label>
+
+                    <label class="slot-label" data-time="01:30 PM" data-days="2,3,4,5,6">
+                      <input type="radio" name="booking-time" value="01:30 PM" class="slot-input">
+                      <div class="slot-box">
+                        <div style="font-weight: 700;">01:30 PM</div>
+                        <div style="font-size: 0.65rem; color: var(--color-text-muted);">Early Afternoon</div>
+                      </div>
+                    </label>
+
+                    <label class="slot-label" data-time="03:00 PM" data-days="2,3,4,5">
+                      <input type="radio" name="booking-time" value="03:00 PM" class="slot-input">
+                      <div class="slot-box">
+                        <div style="font-weight: 700;">03:00 PM</div>
+                        <div style="font-size: 0.65rem; color: var(--color-text-muted);">Afternoon</div>
+                      </div>
+                    </label>
+
+                    <label class="slot-label" data-time="04:30 PM" data-days="2,3,4">
+                      <input type="radio" name="booking-time" value="04:30 PM" class="slot-input">
+                      <div class="slot-box">
+                        <div style="font-weight: 700;">04:30 PM</div>
+                        <div style="font-size: 0.65rem; color: var(--color-text-muted);">Late Afternoon</div>
+                      </div>
+                    </label>
+
+                    <label class="slot-label" data-time="05:30 PM" data-days="4">
+                      <input type="radio" name="booking-time" value="05:30 PM" class="slot-input">
+                      <div class="slot-box">
+                        <div style="font-weight: 700;">05:30 PM</div>
+                        <div style="font-size: 0.65rem; color: var(--color-gold-hover);">Thu Evening</div>
+                      </div>
+                    </label>
+                  </div>
                 </div>
 
                 <div class="wizard-nav-actions">
                   <label for="step3" class="btn btn-outline">
                     &larr; Back to Specialists
                   </label>
-                  <label for="step5" class="btn btn-primary btn-nested">
+                  <label for="step5" class="btn btn-primary btn-nested" id="btn-to-step5">
                     <span>Next: Review &amp; Client Details</span>
                     <span class="btn-icon-pod">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
                     </span>
                   </label>
                 </div>
@@ -710,7 +770,7 @@
                           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
                           Selected Service
                         </span>
-                        <span class="ticket-item-value">Selected in Step 2</span>
+                        <span class="ticket-item-value" id="ticket-service">60m Therapeutic Massage</span>
                       </div>
 
                       <div class="ticket-item-row">
@@ -718,7 +778,7 @@
                           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                           Specialist
                         </span>
-                        <span class="ticket-item-value">Licensed Specialist of Choice</span>
+                        <span class="ticket-item-value" id="ticket-specialist">Licensed Specialist</span>
                       </div>
 
                       <div class="ticket-item-row">
@@ -726,7 +786,7 @@
                           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                           Arrival Window
                         </span>
-                        <span class="ticket-item-value">Selected Slot &bull; Tue&ndash;Sat</span>
+                        <span class="ticket-item-value" id="ticket-datetime" style="color: var(--color-gold);">Tue, Aug 25 @ 09:00 AM</span>
                       </div>
 
                       <div class="ticket-item-row">
@@ -750,7 +810,7 @@
                           <div class="ticket-total-label">Estimated Service Total</div>
                           <div style="font-size: 0.6875rem; color: rgba(250, 248, 245, 0.5);">Zero hidden facility or linen fees</div>
                         </div>
-                        <div class="ticket-total-price">Published Rates</div>
+                        <div class="ticket-total-price" id="ticket-price">$75.00</div>
                       </div>
 
                       <div class="ticket-trust-badges">
@@ -917,5 +977,160 @@
     </a>
   </div>
 
+  <!-- CLIENT-SIDE VALIDATION & OPERATING HOURS CONFORMANCE SCRIPT -->
+  <script>
+    (function() {
+      const dateInput = document.getElementById('booking-date');
+      const dayHoursBanner = document.getElementById('day-hours-text');
+      const dateValidationMsg = document.getElementById('date-validation-message');
+      const timeSlots = document.querySelectorAll('#time-slots-container .slot-label');
+      const btnToStep5 = document.getElementById('btn-to-step5');
+
+      if (!dateInput) return;
+
+      // 1. Disable past dates: min = TODAY (YYYY-MM-DD)
+      const now = new Date();
+      const pad = (n) => String(n).padStart(2, '0');
+      const todayStr = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
+      dateInput.min = todayStr;
+
+      // 2. Set default date: if today is Sun(0) or Mon(1), advance to next upcoming Tuesday
+      let defaultDate = new Date();
+      const curDay = defaultDate.getDay();
+      if (curDay === 0) { // Sunday -> +2 days = Tuesday
+        defaultDate.setDate(defaultDate.getDate() + 2);
+      } else if (curDay === 1) { // Monday -> +1 day = Tuesday
+        defaultDate.setDate(defaultDate.getDate() + 1);
+      }
+      dateInput.value = defaultDate.getFullYear() + '-' + pad(defaultDate.getMonth() + 1) + '-' + pad(defaultDate.getDate());
+
+      // 3. Operating Hours and Time Slots Conformance
+      function updateSchedule() {
+        const val = dateInput.value;
+        if (!val) return;
+
+        const parts = val.split('-');
+        const pickedYear = parseInt(parts[0], 10);
+        const pickedMonth = parseInt(parts[1], 10) - 1;
+        const pickedDay = parseInt(parts[2], 10);
+        const pickedDate = new Date(pickedYear, pickedMonth, pickedDay);
+
+        const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+        // Past date prevention safeguard
+        if (pickedDate < todayStart) {
+          dateInput.value = todayStr;
+          return updateSchedule();
+        }
+
+        const dayOfWeek = pickedDate.getDay(); // 0: Sun, 1: Mon, 2: Tue, 3: Wed, 4: Thu, 5: Fri, 6: Sat
+        let isClosed = false;
+        let bannerHTML = '';
+        let statusMsg = '';
+
+        if (dayOfWeek === 0 || dayOfWeek === 1) {
+          // Sunday or Monday -> Closed
+          isClosed = true;
+          bannerHTML = '<strong style="color: #c92a2a;">Notice:</strong> Eden Spa is closed on Sundays and Mondays. Please select a Tuesday through Saturday date.';
+          statusMsg = '<span style="color: #c92a2a; font-weight: 700;">⚠ Spa is closed on ' + (dayOfWeek === 0 ? 'Sundays' : 'Mondays') + '. Please select a Tue&ndash;Sat date.</span>';
+        } else if (dayOfWeek === 6) {
+          // Saturday: 9:00 AM - 3:00 PM (4 slots: 9am, 10:30am, 12pm, 1:30pm)
+          bannerHTML = '<strong>Saturday Hours:</strong> 9:00 AM &ndash; 3:00 PM (4 arrival windows available)';
+          statusMsg = '<span style="color: var(--color-forest); font-weight: 600;">✓ Saturday Hours (9:00 AM &ndash; 3:00 PM)</span>';
+        } else if (dayOfWeek === 5) {
+          // Friday: 9:00 AM - 5:00 PM (5 slots: 9am, 10:30am, 12pm, 1:30pm, 3:00pm)
+          bannerHTML = '<strong>Friday Hours:</strong> 9:00 AM &ndash; 5:00 PM (5 arrival windows available)';
+          statusMsg = '<span style="color: var(--color-forest); font-weight: 600;">✓ Friday Hours (9:00 AM &ndash; 5:00 PM)</span>';
+        } else if (dayOfWeek === 4) {
+          // Thursday: 9:00 AM - 7:00 PM (Extended Evening, 7 slots)
+          bannerHTML = '<strong>Thursday Extended Hours:</strong> 9:00 AM &ndash; 7:00 PM (7 arrival windows available)';
+          statusMsg = '<span style="color: var(--color-forest); font-weight: 600;">✓ Thursday Evening Hours (9:00 AM &ndash; 7:00 PM)</span>';
+        } else {
+          // Tuesday & Wednesday: 9:00 AM - 6:00 PM (6 slots)
+          bannerHTML = '<strong>Tuesday/Wednesday Hours:</strong> 9:00 AM &ndash; 6:00 PM (6 arrival windows available)';
+          statusMsg = '<span style="color: var(--color-forest); font-weight: 600;">✓ Weekday Hours (9:00 AM &ndash; 6:00 PM)</span>';
+        }
+
+        if (dayHoursBanner) dayHoursBanner.innerHTML = bannerHTML;
+        if (dateValidationMsg) dateValidationMsg.innerHTML = statusMsg;
+
+        // Filter valid slot radios according to data-days
+        let firstActiveSlotFound = false;
+        timeSlots.forEach(slot => {
+          const daysAttr = slot.getAttribute('data-days');
+          const daysList = daysAttr ? daysAttr.split(',').map(Number) : [];
+          const input = slot.querySelector('input');
+
+          if (isClosed || !daysList.includes(dayOfWeek)) {
+            slot.classList.add('slot-disabled');
+            if (input) {
+              input.disabled = true;
+              if (input.checked) input.checked = false;
+            }
+          } else {
+            slot.classList.remove('slot-disabled');
+            if (input) {
+              input.disabled = false;
+              if (!firstActiveSlotFound && !document.querySelector('input[name="booking-time"]:checked:not(:disabled)')) {
+                input.checked = true;
+                firstActiveSlotFound = true;
+              }
+            }
+          }
+        });
+
+        updateSummaryTicket();
+      }
+
+      // 4. Synchronize Live Reservation Ticket in Step 5
+      function updateSummaryTicket() {
+        // Service & Price
+        const serviceInput = document.querySelector('input[name="selected-service"]:checked');
+        const ticketService = document.getElementById('ticket-service');
+        const ticketPrice = document.getElementById('ticket-price');
+        if (serviceInput && ticketService && ticketPrice) {
+          const val = serviceInput.value;
+          const parts = val.split(' - ');
+          ticketService.textContent = parts[0] || val;
+          ticketPrice.textContent = parts[1] || 'Published Rates';
+        }
+
+        // Specialist
+        const specialistInput = document.querySelector('input[name="selected-specialist"]:checked');
+        const ticketSpecialist = document.getElementById('ticket-specialist');
+        if (specialistInput && ticketSpecialist) {
+          const sVal = specialistInput.value;
+          const nameOnly = sVal.split(' (')[0];
+          ticketSpecialist.textContent = nameOnly || 'Licensed Specialist';
+        }
+
+        // Date & Arrival Window
+        const ticketDateTime = document.getElementById('ticket-datetime');
+        const timeInput = document.querySelector('input[name="booking-time"]:checked');
+        if (ticketDateTime && dateInput.value) {
+          const parts = dateInput.value.split('-');
+          const d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+          const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+          const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+          const formatted = days[d.getDay()] + ', ' + months[d.getMonth()] + ' ' + d.getDate();
+          const timeVal = timeInput ? timeInput.value : '09:00 AM';
+          ticketDateTime.textContent = formatted + ' @ ' + timeVal;
+        }
+      }
+
+      dateInput.addEventListener('change', updateSchedule);
+      dateInput.addEventListener('input', updateSchedule);
+
+      document.querySelectorAll('input[name="selected-service"], input[name="selected-specialist"], input[name="booking-time"]').forEach(el => {
+        el.addEventListener('change', updateSummaryTicket);
+      });
+
+      // Initial execution on page load
+      updateSchedule();
+      updateSummaryTicket();
+    })();
+  </script>
+
 </body>
 </html>
+
