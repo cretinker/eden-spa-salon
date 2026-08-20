@@ -4585,3 +4585,432 @@ textarea.form-control {
     gap: var(--space-xl);
   }
 }
+
+/* ==========================================================================
+   27. ELEVATED PACKAGES & DAY RETREATS ARCHITECTURE
+   ========================================================================== */
+
+/* Package Hero Guarantee Callout Box */
+.package-guarantee-box {
+  background-color: var(--color-cream-card);
+  border: 1px solid rgba(197, 168, 128, 0.35);
+  border-left: 3px solid var(--color-gold);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem 1.35rem;
+  margin-top: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.package-guarantee-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-forest);
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.package-guarantee-text {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* 4-Tier Grid Layout */
+.package-tier-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  align-items: stretch;
+}
+
+.package-tier-card {
+  background: var(--color-cream-card);
+  border: 1px solid rgba(197, 168, 128, 0.28);
+  border-radius: var(--radius-xl);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out);
+}
+
+.package-tier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-gold);
+}
+
+.package-tier-card.featured-dark {
+  background: #141E1C;
+  color: #FAF8F5;
+  border-color: rgba(197, 168, 128, 0.6);
+  box-shadow: 0 12px 30px rgba(20, 30, 28, 0.25);
+}
+
+.package-tier-card.featured-dark:hover {
+  border-color: var(--color-gold-light);
+}
+
+.tier-eyebrow-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-gold-hover);
+  margin-bottom: 0.5rem;
+}
+
+.featured-dark .tier-eyebrow-tag {
+  color: var(--color-gold);
+}
+
+.package-tier-name {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  color: var(--color-forest);
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
+}
+
+.featured-dark .package-tier-name {
+  color: #FAF8F5;
+}
+
+.package-tier-time {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.featured-dark .package-tier-time {
+  color: rgba(250, 248, 245, 0.65);
+}
+
+.package-tier-price-wrap {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-cream-border);
+}
+
+.featured-dark .package-tier-price-wrap {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.package-tier-price {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  line-height: 1;
+}
+
+.featured-dark .package-tier-price {
+  color: var(--color-gold-hover);
+}
+
+.package-tier-hook {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+
+.featured-dark .package-tier-hook {
+  color: rgba(250, 248, 245, 0.85);
+}
+
+.package-tier-inclusions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex-grow: 1;
+}
+
+.package-tier-inclusion-item {
+  font-size: 0.825rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  line-height: 1.45;
+}
+
+.featured-dark .package-tier-inclusion-item {
+  color: rgba(250, 248, 245, 0.85);
+}
+
+.package-tier-inclusion-item svg {
+  color: var(--color-gold-hover);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.featured-dark .package-tier-inclusion-item svg {
+  color: var(--color-gold);
+}
+
+/* Comparison Matrix Table */
+.matrix-container {
+  overflow-x: auto;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(197, 168, 128, 0.35);
+  background: var(--color-cream-card);
+  box-shadow: var(--shadow-sm);
+  margin-top: var(--space-xl);
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--text-sm);
+}
+
+.matrix-table thead th {
+  background: #141E1C;
+  color: #FAF8F5;
+  padding: 1.15rem 1.25rem;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--text-base);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.matrix-table thead th:first-child {
+  width: 32%;
+}
+
+.matrix-table thead th.featured-col {
+  background: #1E2D2A;
+  color: var(--color-gold);
+}
+
+.matrix-table tbody tr {
+  border-bottom: 1px solid var(--color-cream-border);
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.matrix-table tbody tr:hover {
+  background-color: rgba(197, 168, 128, 0.06);
+}
+
+.matrix-table tbody td {
+  padding: 1rem 1.25rem;
+  color: var(--color-text-secondary);
+  border-right: 1px solid var(--color-cream-border);
+}
+
+.matrix-table tbody td.featured-col {
+  background: rgba(197, 168, 128, 0.04);
+  font-weight: 500;
+  color: var(--color-forest);
+}
+
+.matrix-check {
+  color: var(--color-gold-hover);
+  font-weight: 700;
+}
+
+.matrix-dash {
+  color: var(--color-text-muted);
+  opacity: 0.4;
+}
+
+/* Savings Breakdown Section (Dark Theme) */
+.savings-section {
+  background: #141E1C;
+  color: #FAF8F5;
+  padding: var(--space-4xl) 0;
+}
+
+.savings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.savings-card {
+  background: #1B2825;
+  border: 1px solid rgba(197, 168, 128, 0.25);
+  border-radius: var(--radius-xl);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.savings-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: #FAF8F5;
+  margin-bottom: 0.5rem;
+}
+
+.savings-math-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  color: rgba(250, 248, 245, 0.7);
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.savings-math-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-gold-hover);
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid rgba(197, 168, 128, 0.35);
+}
+
+.savings-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(45, 106, 79, 0.3);
+  color: #52B788;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(82, 183, 136, 0.3);
+  margin-top: 0.75rem;
+}
+
+/* Multi-Session Course Bundles */
+.course-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.course-card {
+  background: var(--color-cream-card);
+  border: 1px solid rgba(197, 168, 128, 0.28);
+  border-radius: var(--radius-xl);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out);
+}
+
+.course-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.course-sessions-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gold-hover);
+  margin-bottom: 0.5rem;
+}
+
+.course-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--color-forest);
+  margin-bottom: 0.5rem;
+}
+
+.course-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.course-price {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--color-forest);
+}
+
+.course-strike {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.course-per-session {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.course-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* Dual Action Cards (Gift Cards & Standing Rituals) */
+.dual-action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  margin-top: var(--space-3xl);
+}
+
+.action-banner-card {
+  border-radius: var(--radius-2xl);
+  padding: 2.75rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.action-banner-dark {
+  background: #141E1C;
+  color: #FAF8F5;
+  border: 1px solid rgba(197, 168, 128, 0.4);
+}
+
+.action-banner-light {
+  background: var(--color-cream-card);
+  color: var(--color-forest);
+  border: 1px solid rgba(197, 168, 128, 0.3);
+}
+
+/* Responsive queries for Packages */
+@media (max-width: 1100px) {
+  .package-tier-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .savings-grid {
+    grid-template-columns: 1fr;
+  }
+  .course-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .dual-action-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .package-tier-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
