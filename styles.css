@@ -586,10 +586,11 @@ p:last-child {
 
 .nav-container {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
-  padding-top: var(--space-md);
-  padding-bottom: var(--space-md);
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: 4.75rem;
 }
 
 .brand-logo {
@@ -597,6 +598,7 @@ p:last-child {
   align-items: center;
   gap: var(--space-sm);
   text-decoration: none;
+  padding: 0.75rem 0;
 }
 
 .brand-symbol {
@@ -636,7 +638,7 @@ p:last-child {
 /* Nav Menu Items */
 .nav-links {
   display: none;
-  align-items: center;
+  align-items: stretch;
   gap: var(--space-xl);
 }
 
@@ -648,7 +650,10 @@ p:last-child {
 
 .nav-item {
   position: relative;
+  display: flex;
+  align-items: center;
 }
+
 
 .nav-link {
   font-size: var(--text-sm);
@@ -1657,6 +1662,8 @@ textarea.form-control {
    -------------------------------------------------------------------------- */
 .nav-item-mega {
   position: static;
+  display: flex;
+  align-items: center;
 }
 
 .dropdown-mega {
@@ -1681,6 +1688,18 @@ textarea.form-control {
   z-index: 999;
 }
 
+/* Invisible smooth hover bridge connecting nav item to mega dropdown */
+.dropdown-mega::before {
+  content: '';
+  position: absolute;
+  top: -24px;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background: transparent;
+  pointer-events: auto;
+}
+
 .nav-item-mega:hover .dropdown-mega,
 .nav-item-mega:focus-within .dropdown-mega {
   opacity: 1;
@@ -1688,6 +1707,7 @@ textarea.form-control {
   pointer-events: auto;
   transform: translateY(0);
 }
+
 
 .mega-container {
   max-width: 1320px;
