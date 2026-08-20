@@ -1647,13 +1647,529 @@ textarea.form-control {
   align-items: center;
   flex-wrap: wrap;
   gap: var(--space-md);
-  padding-top: var(--space-xl);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+/* --------------------------------------------------------------------------
+   17. PURE CSS MEGA MENU ENHANCEMENT
+   -------------------------------------------------------------------------- */
+.dropdown-mega {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px) scale(0.98);
+  min-width: 680px;
+  max-width: 90vw;
+  background-color: var(--color-cream-card);
+  border: 1px solid var(--color-forest-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-xl);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out),
+              visibility var(--duration-fast) var(--ease-out);
+  z-index: 120;
+}
+
+.nav-item:hover .dropdown-mega,
+.nav-item:focus-within .dropdown-mega {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.mega-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.mega-item-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: var(--space-md);
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-cream-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.mega-item-card:hover {
+  background-color: #FFFFFF;
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.mega-item-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-forest);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mega-item-desc {
   font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.mega-item-rate {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-gold-hover);
+  margin-top: 0.25rem;
+}
+
+.mega-footer {
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-cream-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* --------------------------------------------------------------------------
-   17. STICKY MOBILE BOOKING BAR (<768px)
+   18. PURE CSS MULTI-STEP BOOKING WIZARD
+   -------------------------------------------------------------------------- */
+.booking-wizard {
+  position: relative;
+  width: 100%;
+}
+
+.wizard-step-input {
+  display: none;
+}
+
+/* Wizard Step Progress Tracker */
+.wizard-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2xl);
+  position: relative;
+  gap: var(--space-xs);
+}
+
+.wizard-progress::before {
+  content: '';
+  position: absolute;
+  top: 1.25rem;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background-color: var(--color-cream-border);
+  z-index: 1;
+}
+
+.wizard-progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.wizard-step-num {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-cream);
+  border: 2px solid var(--color-cream-border);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--text-sm);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.wizard-step-title {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+/* Step Panels */
+.wizard-panel {
+  display: none;
+  animation: fadeIn 220ms var(--ease-out);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Active Step Switcher via Pure CSS :checked */
+#step1:checked ~ .wizard-progress .progress-step-1 .wizard-step-num,
+#step2:checked ~ .wizard-progress .progress-step-2 .wizard-step-num,
+#step3:checked ~ .wizard-progress .progress-step-3 .wizard-step-num,
+#step4:checked ~ .wizard-progress .progress-step-4 .wizard-step-num,
+#step5:checked ~ .wizard-progress .progress-step-5 .wizard-step-num {
+  background-color: var(--color-forest);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  box-shadow: var(--shadow-sm);
+}
+
+#step1:checked ~ .wizard-progress .progress-step-1 .wizard-step-title,
+#step2:checked ~ .wizard-progress .progress-step-2 .wizard-step-title,
+#step3:checked ~ .wizard-progress .progress-step-3 .wizard-step-title,
+#step4:checked ~ .wizard-progress .progress-step-4 .wizard-step-title,
+#step5:checked ~ .wizard-progress .progress-step-5 .wizard-step-title {
+  color: var(--color-forest);
+  font-weight: 700;
+}
+
+#step1:checked ~ .wizard-panel-1,
+#step2:checked ~ .wizard-panel-2,
+#step3:checked ~ .wizard-panel-3,
+#step4:checked ~ .wizard-panel-4,
+#step5:checked ~ .wizard-panel-5 {
+  display: block;
+}
+
+/* Wizard Category & Service Selector Cards */
+.wizard-grid-picker {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 640px) {
+  .wizard-grid-picker {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .wizard-grid-picker.picker-3col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.picker-card-label {
+  display: block;
+  cursor: pointer;
+  margin: 0;
+}
+
+.picker-card-input {
+  display: none;
+}
+
+.picker-card-box {
+  padding: var(--space-lg);
+  background-color: var(--color-cream-card);
+  border: 1.5px solid var(--color-cream-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.picker-card-box:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.picker-card-input:checked + .picker-card-box {
+  border-color: var(--color-forest);
+  background-color: var(--color-cream-subtle);
+  outline: 2px solid var(--color-gold);
+  box-shadow: var(--shadow-lg);
+}
+
+.picker-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-xs);
+}
+
+.picker-card-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-forest);
+}
+
+.picker-card-price {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-gold-hover);
+}
+
+.picker-card-desc {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-top: var(--space-xs);
+}
+
+.picker-card-meta {
+  margin-top: auto;
+  padding-top: var(--space-sm);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* Specialist Cards in Wizard */
+.specialist-box {
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.specialist-thumb {
+  width: 70px;
+  height: 70px;
+  border-radius: var(--radius-full);
+  margin: 0 auto var(--space-sm) auto;
+  object-fit: cover;
+  border: 2px solid var(--color-gold);
+}
+
+/* Date & Time Picker Layout */
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.slot-label {
+  display: block;
+  cursor: pointer;
+  margin: 0;
+}
+
+.slot-input {
+  display: none;
+}
+
+.slot-box {
+  padding: 0.6rem;
+  text-align: center;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  border: 1px solid var(--color-cream-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-cream-card);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.slot-box:hover {
+  border-color: var(--color-gold);
+}
+
+.slot-input:checked + .slot-box {
+  background-color: var(--color-forest);
+  color: var(--color-gold);
+  border-color: var(--color-forest);
+}
+
+/* Wizard Navigation Button Pods */
+.wizard-nav-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-cream-border);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   19. PURE CSS EDEN ESCAPE PACKAGE BUILDER (WITH CSS COUNTER)
+   -------------------------------------------------------------------------- */
+.package-builder-form {
+  counter-reset: package-counter;
+}
+
+.package-builder-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+
+@media (min-width: 768px) {
+  .package-builder-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.builder-check-input {
+  display: none;
+}
+
+.builder-check-input:checked {
+  counter-increment: package-counter;
+}
+
+.builder-card-box {
+  padding: var(--space-md);
+  background-color: var(--color-cream-card);
+  border: 1.5px solid var(--color-cream-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  transition: all var(--duration-fast) var(--ease-out);
+  height: 100%;
+}
+
+.builder-card-box:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+}
+
+.builder-check-indicator {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: var(--radius-xs);
+  border: 1.5px solid var(--color-cream-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  background-color: #FFFFFF;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.builder-check-input:checked + .builder-card-box {
+  border-color: var(--color-forest);
+  background-color: var(--color-cream-subtle);
+}
+
+.builder-check-input:checked + .builder-card-box .builder-check-indicator {
+  background-color: var(--color-forest);
+  border-color: var(--color-forest);
+  color: var(--color-gold);
+}
+
+.builder-counter-bar {
+  background-color: var(--color-forest);
+  color: var(--color-cream);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.builder-counter-display::after {
+  content: counter(package-counter) " of 5 selected";
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+/* --------------------------------------------------------------------------
+   20. PURE CSS TREATMENT CATEGORY FILTER CHIPS
+   -------------------------------------------------------------------------- */
+.filter-radio-input {
+  display: none;
+}
+
+.filter-chips-bar {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.filter-chip-label {
+  padding: 0.5rem 1.25rem;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-forest-border);
+  background-color: var(--color-cream-card);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.filter-chip-label:hover {
+  border-color: var(--color-gold);
+  color: var(--color-forest);
+}
+
+#filter-all:checked ~ .filter-chips-bar label[for="filter-all"],
+#filter-hair:checked ~ .filter-chips-bar label[for="filter-hair"],
+#filter-skincare:checked ~ .filter-chips-bar label[for="filter-skincare"],
+#filter-massage:checked ~ .filter-chips-bar label[for="filter-massage"],
+#filter-nails:checked ~ .filter-chips-bar label[for="filter-nails"],
+#filter-waxing:checked ~ .filter-chips-bar label[for="filter-waxing"],
+#filter-tanning:checked ~ .filter-chips-bar label[for="filter-tanning"] {
+  background-color: var(--color-forest);
+  color: var(--color-gold);
+  border-color: var(--color-forest);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Filter Item Visibility */
+#filter-hair:checked ~ .accordion-group .accordion-item:not([data-category="hair"]),
+#filter-skincare:checked ~ .accordion-group .accordion-item:not([data-category="skincare"]),
+#filter-massage:checked ~ .accordion-group .accordion-item:not([data-category="massage"]),
+#filter-nails:checked ~ .accordion-group .accordion-item:not([data-category="nails"]),
+#filter-waxing:checked ~ .accordion-group .accordion-item:not([data-category="waxing"]),
+#filter-tanning:checked ~ .accordion-group .accordion-item:not([data-category="tanning"]) {
+  display: none !important;
+}
+
+/* Quick Book Button on Service Rows */
+.service-book-btn {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-cream-subtle);
+  color: var(--color-forest);
+  border: 1px solid var(--color-cream-border);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: var(--space-xs);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.service-book-btn:hover {
+  background-color: var(--color-gold);
+  color: var(--color-forest-dark);
+  border-color: var(--color-gold);
+}
+
+/* --------------------------------------------------------------------------
+   21. STICKY MOBILE BOOKING BAR (<768px)
    -------------------------------------------------------------------------- */
 .mobile-sticky-bar {
   display: flex;
@@ -1696,7 +2212,7 @@ textarea.form-control {
 }
 
 /* --------------------------------------------------------------------------
-   18. UTILITY & ACCESSIBILITY CLASSES
+   22. UTILITY & ACCESSIBILITY CLASSES
    -------------------------------------------------------------------------- */
 .text-center { text-align: center; }
 .text-left { text-align: left; }
