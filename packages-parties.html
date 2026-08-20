@@ -75,18 +75,69 @@
 
       <nav class="nav-links" aria-label="Primary Navigation">
         <div class="nav-item"><a href="index.html" class="nav-link">Home</a></div>
-        <div class="nav-item">
+        <div class="nav-item nav-item-mega">
           <a href="treatments.html" class="nav-link">
-            Treatments
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            <span>Treatments</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
           </a>
-          <div class="dropdown-menu">
-            <a href="hair.html" class="dropdown-link">Hair Artistry &amp; Color</a>
-            <a href="skincare.html" class="dropdown-link">Skin Care &amp; Facials</a>
-            <a href="massage.html" class="dropdown-link">Therapeutic Massage</a>
-            <a href="nails.html" class="dropdown-link">Botanical Nail Care</a>
-            <a href="waxing-tanning.html" class="dropdown-link">Waxing &amp; Spray Tanning</a>
-            <a href="treatments.html" class="dropdown-link" style="font-weight: 600; color: var(--color-gold-hover); border-top: 1px solid var(--color-cream-border);">View Full Menu &rarr;</a>
+          <div class="dropdown-mega">
+            <div class="container mega-container">
+              <!-- Top Meta Header Bar -->
+              <div class="mega-top-bar">
+                <span class="mega-top-tag">50+ Verified Treatments, Zero Hidden Pricing &amp; Transparent Rates</span>
+                <a href="treatments.html" class="mega-top-link">The Complete List &rarr;</a>
+              </div>
+
+              <!-- Section 1: By Treatment -->
+              <div class="mega-section-label">By Treatment</div>
+              <div class="mega-row-grid">
+                <a href="hair.html" class="mega-col-item">
+                  <span class="mega-col-title">Hair Studio &amp; Color</span>
+                  <span class="mega-col-price">From $24</span>
+                </a>
+                <a href="skincare.html" class="mega-col-item">
+                  <span class="mega-col-title">Facials &amp; Skin Care</span>
+                  <span class="mega-col-price">From $40</span>
+                </a>
+                <a href="massage.html" class="mega-col-item">
+                  <span class="mega-col-title">Therapeutic Massage</span>
+                  <span class="mega-col-price">From $40</span>
+                </a>
+                <a href="nails.html" class="mega-col-item">
+                  <span class="mega-col-title">Botanical Nail Care</span>
+                  <span class="mega-col-price">From $25</span>
+                </a>
+                <a href="waxing-tanning.html" class="mega-col-item">
+                  <span class="mega-col-title">Waxing &amp; Spray Tan</span>
+                  <span class="mega-col-price">From $15</span>
+                </a>
+              </div>
+
+              <!-- Section 2: By Occasion & Experience -->
+              <div class="mega-section-label">By Who It Is For &amp; Signature Packages</div>
+              <div class="mega-row-grid">
+                <a href="packages-parties.html" class="mega-col-item" style="background-color: rgba(255, 255, 255, 0.04);">
+                  <span class="mega-col-title" style="color: var(--color-gold-hover);">The Eden Escape (Pick 5)</span>
+                  <span class="mega-col-price">From $190</span>
+                </a>
+                <a href="packages-parties.html" class="mega-col-item">
+                  <span class="mega-col-title">Bridal &amp; Wedding Parties</span>
+                  <span class="mega-col-price">Custom Party</span>
+                </a>
+                <a href="packages-parties.html" class="mega-col-item">
+                  <span class="mega-col-title">Head-to-Toe Day of Beauty</span>
+                  <span class="mega-col-price">From $290</span>
+                </a>
+                <a href="hair.html" class="mega-col-item">
+                  <span class="mega-col-title">Gentlemen's Cuts &amp; Grooming</span>
+                  <span class="mega-col-price">From $24</span>
+                </a>
+                <a href="gift-certificates.html" class="mega-col-item">
+                  <span class="mega-col-title">Instant Gift Certificates</span>
+                  <span class="mega-col-price">From $25</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="nav-item"><a href="packages-parties.html" class="nav-link active">Packages &amp; Parties</a></div>
@@ -96,8 +147,8 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="tel:5703801300" class="btn btn-primary btn-nested">
-          <span>Book Appointment</span>
+        <a href="book.html" class="btn btn-primary btn-nested" style="padding: 0.6rem 1.25rem; font-size: var(--text-xs);">
+          <span>Book Online</span>
           <span class="btn-icon-pod">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
           </span>
@@ -115,6 +166,7 @@
   <div class="mobile-nav-drawer">
     <nav class="mobile-nav-list" aria-label="Mobile Navigation">
       <div class="mobile-nav-item"><a href="index.html">Home</a></div>
+      <div class="mobile-nav-item"><a href="book.html" style="color: var(--color-gold); font-weight: 700;">Book an Appointment</a></div>
       <div class="mobile-nav-item"><a href="treatments.html">Treatments Menu</a></div>
       <div class="mobile-nav-item"><a href="hair.html">&mdash; Hair Artistry &amp; Color</a></div>
       <div class="mobile-nav-item"><a href="skincare.html">&mdash; Skin Care &amp; Facials</a></div>
@@ -127,7 +179,7 @@
       <div class="mobile-nav-item"><a href="visit.html">Visit, Map &amp; Policies</a></div>
     </nav>
     <div style="margin-top: var(--space-xl);">
-      <a href="tel:5703801300" class="btn btn-primary" style="width: 100%;">Call 570-380-1300 to Book</a>
+      <a href="book.html" class="btn btn-primary" style="width: 100%;">Book an Appointment Online</a>
     </div>
   </div>
 
