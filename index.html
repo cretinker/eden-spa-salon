@@ -1157,17 +1157,6 @@
     </div>
   </footer>
 
-  <!-- STICKY MOBILE BOOKING BAR -->
-  <div class="mobile-sticky-bar" aria-label="Quick mobile booking action">
-    <div class="mobile-bar-info">
-      <span class="mobile-bar-title">Eden Spa &amp; Salon</span>
-      <span class="mobile-bar-sub">Appointments: 570-380-1300</span>
-    </div>
-    <a href="book.html" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: var(--text-xs);">
-      Book Online
-    </a>
-  </div>
-
   <!-- STICKY MOBILE BOOKING BAR (<768px) -->
   <div class="mobile-sticky-bar" aria-label="Quick mobile booking action">
     <div class="mobile-bar-info">
@@ -1178,6 +1167,24 @@
       Book Online
     </a>
   </div>
+
+  <!-- HOVER-TO-ACTIVATE SCRIPT FOR CONCERN NAVIGATOR -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const concernTabBtns = document.querySelectorAll('.concern-tab-btn');
+      concernTabBtns.forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+          const forId = this.getAttribute('for');
+          if (forId) {
+            const radio = document.getElementById(forId);
+            if (radio && !radio.checked) {
+              radio.checked = true;
+            }
+          }
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>

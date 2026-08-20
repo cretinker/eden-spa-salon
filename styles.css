@@ -4544,6 +4544,112 @@ textarea.form-control,
   flex-grow: 1;
 }
 
+.concern-tab-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-cream-card);
+  border: 1px solid var(--color-forest-border);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.35rem;
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  position: relative;
+}
+
+.concern-tab-btn:hover {
+  background-color: #FFFFFF;
+  border-color: var(--color-gold);
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(20, 30, 28, 0.06);
+}
+
+.concern-tab-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-forest);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 200ms ease;
+}
+
+.concern-tab-meta {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold-hover);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 200ms ease;
+}
+
+/* Active State for Concern Tabs */
+#concern-1:checked ~ .concern-layout-split .concern-list-menu label[for="concern-1"],
+#concern-2:checked ~ .concern-layout-split .concern-list-menu label[for="concern-2"],
+#concern-3:checked ~ .concern-layout-split .concern-list-menu label[for="concern-3"],
+#concern-4:checked ~ .concern-layout-split .concern-list-menu label[for="concern-4"],
+#concern-5:checked ~ .concern-layout-split .concern-list-menu label[for="concern-5"],
+#concern-6:checked ~ .concern-layout-split .concern-list-menu label[for="concern-6"] {
+  background-color: #141E1C;
+  border-color: var(--color-gold);
+  box-shadow: 0 6px 20px rgba(20, 30, 28, 0.2);
+  transform: translateX(6px);
+}
+
+#concern-1:checked ~ .concern-layout-split .concern-list-menu label[for="concern-1"] .concern-tab-title,
+#concern-2:checked ~ .concern-layout-split .concern-list-menu label[for="concern-2"] .concern-tab-title,
+#concern-3:checked ~ .concern-layout-split .concern-list-menu label[for="concern-3"] .concern-tab-title,
+#concern-4:checked ~ .concern-layout-split .concern-list-menu label[for="concern-4"] .concern-tab-title,
+#concern-5:checked ~ .concern-layout-split .concern-list-menu label[for="concern-5"] .concern-tab-title,
+#concern-6:checked ~ .concern-layout-split .concern-list-menu label[for="concern-6"] .concern-tab-title {
+  color: #FAF8F5;
+}
+
+#concern-1:checked ~ .concern-layout-split .concern-list-menu label[for="concern-1"] .concern-tab-meta,
+#concern-2:checked ~ .concern-layout-split .concern-list-menu label[for="concern-2"] .concern-tab-meta,
+#concern-3:checked ~ .concern-layout-split .concern-list-menu label[for="concern-3"] .concern-tab-meta,
+#concern-4:checked ~ .concern-layout-split .concern-list-menu label[for="concern-4"] .concern-tab-meta,
+#concern-5:checked ~ .concern-layout-split .concern-list-menu label[for="concern-5"] .concern-tab-meta,
+#concern-6:checked ~ .concern-layout-split .concern-list-menu label[for="concern-6"] .concern-tab-meta {
+  color: var(--color-gold);
+}
+
+/* Concern Display Panels */
+.concern-panel {
+  display: none;
+  background-color: var(--color-cream-card);
+  border: 1px solid var(--color-forest-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-lg);
+  animation: concernFadeIn 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes concernFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+#concern-1:checked ~ .concern-layout-split .concern-panel-1,
+#concern-2:checked ~ .concern-layout-split .concern-panel-2,
+#concern-3:checked ~ .concern-layout-split .concern-panel-3,
+#concern-4:checked ~ .concern-layout-split .concern-panel-4,
+#concern-5:checked ~ .concern-layout-split .concern-panel-5,
+#concern-6:checked ~ .concern-layout-split .concern-panel-6 {
+  display: block;
+}
+
 .combo-footer {
   display: flex;
   justify-content: space-between;
