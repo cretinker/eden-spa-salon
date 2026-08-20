@@ -12,32 +12,35 @@
 </head>
 <body>
 
-  <!-- TOP UTILITY BAR -->
-  <div class="top-bar">
+  <!-- Top Announcement Bar -->
+  <aside class="top-bar" aria-label="Quick announcements and contact">
     <div class="container top-bar-inner">
       <div class="top-bar-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
         <span>6795 Keefers Ln, Bloomsburg, PA 17815</span>
       </div>
       <div class="top-bar-links">
         <div class="top-bar-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span>Tue-Wed: 9-6 | Thu: 9-7 | Fri: 9-5 | Sat: 9-3</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Tue-Wed 9-6 | Thu 9-7 | Fri 9-5 | Sat 9-3</span>
         </div>
-        <div class="top-bar-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:5703801300" style="color: var(--color-gold); font-weight: 600;">570-380-1300</a>
-        </div>
+        <a href="tel:5703801300" class="top-bar-item" style="color: var(--color-gold);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <strong>570-380-1300</strong>
+        </a>
       </div>
     </div>
-  </div>
+  </aside>
+
+  <!-- Mobile Drawer Toggle (Pure CSS) -->
+  <input type="checkbox" id="mobile-toggle" class="mobile-menu-toggle" aria-label="Toggle mobile menu">
 
   <!-- STICKY SITE HEADER WITH MEGA MENU -->
   <header class="site-header">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo" aria-label="Eden Spa & Salon Home">
         <div class="brand-symbol">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
         </div>
         <div class="brand-text">
           <span class="brand-name">Eden Spa &amp; Salon</span>
@@ -122,14 +125,14 @@
 
       <!-- Header Action -->
       <div class="nav-actions">
-        <a href="tel:5703801300" class="btn btn-outline" style="display: none; padding: 0.6rem 1.15rem; font-size: var(--text-xs);">
-          Call 570-380-1300
-        </a>
         <a href="book.html" class="btn btn-primary btn-nested" style="padding: 0.6rem 1.25rem; font-size: var(--text-xs);">
           <span>Book Online</span>
+          <span class="btn-icon-pod">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </span>
         </a>
         
-        <label for="mobile-drawer-toggle" class="mobile-menu-btn" aria-label="Open Mobile Menu">
+        <label for="mobile-toggle" class="mobile-menu-btn" aria-label="Open Mobile Menu">
           <span></span>
           <span></span>
           <span></span>
@@ -138,28 +141,26 @@
     </div>
   </header>
 
-  <!-- PURE CSS MOBILE DRAWER -->
-  <input type="checkbox" id="mobile-drawer-toggle" class="mobile-menu-toggle">
-  <div class="mobile-menu-drawer">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xl);">
-      <span style="font-family: var(--font-serif); font-weight: 700; color: var(--color-cream); font-size: var(--text-xl);">Eden Spa Menu</span>
-      <label for="mobile-drawer-toggle" style="color: var(--color-gold); font-size: var(--text-2xl); cursor: pointer;">&times;</label>
-    </div>
-    <nav class="mobile-nav-links">
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer">
+    <nav class="mobile-nav-list" aria-label="Mobile Navigation">
       <div class="mobile-nav-item"><a href="index.html">Home</a></div>
       <div class="mobile-nav-item"><a href="book.html" style="color: var(--color-gold); font-weight: 700;">Book an Appointment</a></div>
-      <div class="mobile-nav-item"><a href="hair.html">Hair Artistry &amp; Color</a></div>
-      <div class="mobile-nav-item"><a href="massage.html">Therapeutic Massage</a></div>
-      <div class="mobile-nav-item"><a href="skincare.html">Facials &amp; Skin Care</a></div>
-      <div class="mobile-nav-item"><a href="nails.html">Manicures &amp; Pedicures</a></div>
-      <div class="mobile-nav-item"><a href="waxing-tanning.html">Waxing &amp; Spray Tanning</a></div>
-      <div class="mobile-nav-item"><a href="packages-parties.html">Spa Packages &amp; Parties</a></div>
+      <div class="mobile-nav-item"><a href="treatments.html">Treatments Menu</a></div>
+      <div class="mobile-nav-item"><a href="hair.html">&mdash; Hair Artistry &amp; Color</a></div>
+      <div class="mobile-nav-item"><a href="skincare.html">&mdash; Skin Care &amp; Facials</a></div>
+      <div class="mobile-nav-item"><a href="massage.html">&mdash; Therapeutic Massage</a></div>
+      <div class="mobile-nav-item"><a href="nails.html">&mdash; Nail Care &amp; Pedicures</a></div>
+      <div class="mobile-nav-item"><a href="waxing-tanning.html">&mdash; Waxing &amp; Spray Tanning</a></div>
+      <div class="mobile-nav-item"><a href="packages-parties.html">Packages &amp; Parties</a></div>
       <div class="mobile-nav-item"><a href="gift-certificates.html">Gift Certificates</a></div>
-      <div class="mobile-nav-item"><a href="team.html">Our Licensed Team</a></div>
+      <div class="mobile-nav-item"><a href="team.html">Our Team</a></div>
       <div class="mobile-nav-item"><a href="visit.html">Visit, Map &amp; Policies</a></div>
     </nav>
     <div style="margin-top: var(--space-xl);">
-      <a href="tel:5703801300" class="btn btn-primary" style="width: 100%;">Call 570-380-1300</a>
+      <a href="tel:5703801300" class="btn btn-primary" style="width: 100%;">
+        Call 570-380-1300 to Book
+      </a>
     </div>
   </div>
 
