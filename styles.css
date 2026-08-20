@@ -1659,6 +1659,21 @@ textarea.form-control {
   position: static;
 }
 
+.nav-item-mega > .nav-link {
+  position: relative;
+}
+
+/* Hover bridge: strictly constrained to directly below the Treatments link */
+.nav-item-mega > .nav-link::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  pointer-events: auto;
+}
+
 .dropdown-mega {
   position: absolute;
   top: 100%;
@@ -1670,25 +1685,15 @@ textarea.form-control {
   border-top: 1px solid rgba(197, 168, 128, 0.25);
   border-bottom: 2px solid rgba(197, 168, 128, 0.35);
   box-shadow: 0 35px 70px rgba(0, 0, 0, 0.65);
-  padding: 2.25rem 0 2.75rem 0;
+  padding: 2rem 0 2.5rem 0;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transform: translateY(-8px);
-  transition: opacity 240ms cubic-bezier(0.16, 1, 0.3, 1),
-              transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
-              visibility 240ms ease;
+  transition: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 200ms ease;
   z-index: 999;
-}
-
-/* Hover bridge: ensures mouse can traverse seamlessly from nav item into dropdown */
-.nav-item-mega::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 14px;
 }
 
 .nav-item-mega:hover .dropdown-mega,
