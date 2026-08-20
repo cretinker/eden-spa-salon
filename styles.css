@@ -1659,21 +1659,6 @@ textarea.form-control {
   position: static;
 }
 
-.nav-item-mega > .nav-link {
-  position: relative;
-}
-
-/* Hover bridge: strictly constrained to directly below the Treatments link */
-.nav-item-mega > .nav-link::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  pointer-events: auto;
-}
-
 .dropdown-mega {
   position: absolute;
   top: 100%;
