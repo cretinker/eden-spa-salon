@@ -5014,3 +5014,387 @@ textarea.form-control {
   }
 }
 
+/* ==========================================================================
+   28. ELEVATED GIFTING EXPERIENCE & VISIT ARRIVAL GUIDE
+   ========================================================================== */
+
+/* Live Interactive Gift Card Customizer Stage */
+.gc-customizer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.gc-form-box {
+  background: var(--color-cream-card);
+  border: 1px solid rgba(197, 168, 128, 0.35);
+  border-radius: var(--radius-2xl);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.gc-amount-selector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.gc-amount-btn {
+  background: var(--color-cream);
+  border: 1px solid var(--color-cream-border);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 0.5rem;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-forest);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.gc-amount-btn:hover {
+  border-color: var(--color-gold);
+  background: var(--color-cream-subtle);
+}
+
+.gc-amount-btn.active {
+  background: var(--color-forest);
+  color: var(--color-gold);
+  border-color: var(--color-forest);
+  box-shadow: var(--shadow-sm);
+}
+
+.gc-amount-sub {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+.gc-live-card-container {
+  perspective: 1000px;
+  position: sticky;
+  top: 100px;
+}
+
+.gc-live-card {
+  background: linear-gradient(135deg, #182422 0%, #0E1614 100%);
+  border: 1.5px solid rgba(197, 168, 128, 0.45);
+  border-radius: var(--radius-2xl);
+  padding: 2.5rem;
+  color: #FAF8F5;
+  box-shadow: 0 20px 45px rgba(10, 16, 14, 0.35);
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gc-live-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(197, 168, 128, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.gc-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.gc-card-logo {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  letter-spacing: 0.02em;
+}
+
+.gc-card-location {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(250, 248, 245, 0.6);
+  margin-top: 2px;
+}
+
+.gc-card-val-tag {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #FAF8F5;
+  line-height: 1;
+}
+
+.gc-card-body {
+  margin: 1.5rem 0;
+  padding: 1rem 0;
+  border-top: 1px dashed rgba(197, 168, 128, 0.25);
+  border-bottom: 1px dashed rgba(197, 168, 128, 0.25);
+}
+
+.gc-card-recipient {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-gold-light);
+  margin-bottom: 0.35rem;
+}
+
+.gc-card-message {
+  font-size: 0.8125rem;
+  color: rgba(250, 248, 245, 0.8);
+  font-style: italic;
+  line-height: 1.5;
+  min-height: 2.5em;
+}
+
+.gc-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 0.6875rem;
+  color: rgba(250, 248, 245, 0.55);
+}
+
+.gc-card-seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+/* Packaging Mode Cards */
+.packaging-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.packaging-card {
+  background: var(--color-cream-card);
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  border-radius: var(--radius-xl);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.packaging-icon-pod {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--color-cream-subtle);
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold-hover);
+  margin-bottom: 1.25rem;
+}
+
+.packaging-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-forest);
+  margin-bottom: 0.5rem;
+}
+
+.packaging-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+}
+
+/* Visit Page: Arrival Timeline */
+.arrival-step-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+.arrival-step-card {
+  background: var(--color-cream-card);
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.arrival-step-time {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-gold-hover);
+  margin-bottom: 0.5rem;
+}
+
+.arrival-step-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-forest);
+  margin-bottom: 0.5rem;
+}
+
+.arrival-step-desc {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Driving Routes Grid */
+.routes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.route-card {
+  background: var(--color-cream-card);
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  border-radius: var(--radius-xl);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.route-badge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gold-hover);
+  background: rgba(197, 168, 128, 0.12);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.75rem;
+  align-self: flex-start;
+}
+
+.route-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--color-forest);
+  margin-bottom: 0.5rem;
+}
+
+.route-time {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-forest);
+  margin-bottom: 1rem;
+}
+
+.route-steps-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.route-steps-list li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.route-steps-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-gold-hover);
+  font-weight: 700;
+}
+
+/* Sensory Atmosphere Breakdown */
+.sensory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+.sensory-card {
+  background: #141E1C;
+  color: #FAF8F5;
+  border: 1px solid rgba(197, 168, 128, 0.25);
+  border-radius: var(--radius-xl);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sensory-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+}
+
+.sensory-desc {
+  font-size: var(--text-xs);
+  color: rgba(250, 248, 245, 0.75);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .gc-customizer-grid {
+    grid-template-columns: 1fr;
+  }
+  .gc-live-card-container {
+    position: static;
+  }
+  .packaging-grid {
+    grid-template-columns: 1fr;
+  }
+  .arrival-step-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .routes-grid {
+    grid-template-columns: 1fr;
+  }
+  .sensory-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .gc-amount-selector {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .arrival-step-grid {
+    grid-template-columns: 1fr;
+  }
+  .sensory-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
