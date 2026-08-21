@@ -656,138 +656,179 @@
       <div class="container">
         
         <div class="double-bezel">
-          <div class="double-bezel-inner">
+          <div class="double-bezel-inner" style="padding: 2.25rem;">
             
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--space-md); margin-bottom: var(--space-lg);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md); margin-bottom: var(--space-xl);">
               <div>
                 <span class="eyebrow" style="margin-bottom: 0.25rem;">Interactive Package Builder</span>
                 <h2 style="color: var(--color-forest); margin-bottom: 0.25rem; font-size: 1.85rem;">Customize Your "Eden Escape" ($190)</h2>
                 <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: 0;">
-                  Choose <strong>any 5 treatments</strong> to tailor your 3-hour visit from the 9 eligible treatments below:
+                  Choose <strong>any 5 treatments</strong> to tailor your 3-hour signature visit from our 9 eligible options:
                 </p>
               </div>
-              <div class="builder-counter-bar">
-                <span style="font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.05em;">Your Bundle:</span>
-                <span class="builder-counter-display"></span>
+              
+              <!-- Live Counter Badge -->
+              <div id="builder-status-badge" class="builder-status-badge">
+                <span id="builder-count-text">5 of 5 Selected</span>
+                <span id="builder-ready-pill" class="builder-ready-pill">&#10003; Ready to Book</span>
               </div>
             </div>
 
-            <form class="package-builder-form">
-              <div class="package-builder-grid">
-                
-                <label>
-                  <input type="checkbox" name="escape-item" class="builder-check-input" checked>
-                  <div class="builder-card-box">
-                    <div class="builder-check-indicator">&#10003;</div>
-                    <div>
-                      <strong style="font-size: var(--text-sm); color: var(--color-forest);">Haircut &amp; Style</strong>
-                      <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin: 2px 0 0 0;">Wash, scalp massage, haircut &amp; blowout</p>
-                    </div>
+            <!-- 9 Service Selection Cards -->
+            <div class="escape-builder-grid" id="escape-builder-grid">
+              
+              <!-- Card 1 -->
+              <div class="escape-item-card is-selected" data-service="Haircut & Style" data-price="42">
+                <div class="escape-checkbox">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="escape-item-content">
+                  <div class="escape-item-header">
+                    <strong class="escape-item-name">Haircut &amp; Style</strong>
+                    <span class="escape-item-val">$42 val</span>
                   </div>
-                </label>
-
-                <label>
-                  <input type="checkbox" name="escape-item" class="builder-check-input" checked>
-                  <div class="builder-card-box">
-                    <div class="builder-check-indicator">&#10003;</div>
-                    <div>
-                      <strong style="font-size: var(--text-sm); color: var(--color-forest);">1/2 Hr Therapeutic Massage</strong>
-                      <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin: 2px 0 0 0;">Targeted back, neck &amp; shoulder relief</p>
-                    </div>
-                  </div>
-                </label>
-
-                <label>
-                  <input type="checkbox" name="escape-item" class="builder-check-input" checked>
-                  <div class="builder-card-box">
-                    <div class="builder-check-indicator">&#10003;</div>
-                    <div>
-                      <strong style="font-size: var(--text-sm); color: var(--color-forest);">Express Botanical Facial</strong>
-                      <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin: 2px 0 0 0;">30-min glow with enzyme cleanse &amp; steam</p>
-                    </div>
-                  </div>
-                </label>
-
-                <label>
-                  <input type="checkbox" name="escape-item" class="builder-check-input" checked>
-                  <div class="builder-card-box">
-                    <div class="builder-check-indicator">&#10003;</div>
-                    <div>
-                      <strong style="font-size: var(--text-sm); color: var(--color-forest);">Deluxe Spa Manicure</strong>
-                      <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin: 2px 0 0 0;">Includes warm paraffin hand dip</p>
-                    </div>
-                  </div>
-                </label>
-
-                <label>
-                  <input type="checkbox" name="escape-item" class="builder-check-input" checked>
-                  <div class="builder-card-box">
-                    <div class="builder-check-indicator">&#10003;</div>
-                    <div>
-                      <strong style="font-size: var(--text-sm); color: var(--color-forest);">Basic Whirlpool Pedicure</strong>
-                      <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin: 2px 0 0 0;">Relaxing soak, scrub &amp; callus smoothing</p>
-                    </div>
-                  </div>
-                </label>
-
-                <label>
-                  <input type="checkbox" name="escape-item" class="builder-check-input">
-                  <div class="builder-card-box">
-                    <div class="builder-check-indicator">&#10003;</div>
-                    <div>
-                      <strong style="font-size: var(--text-sm); color: var(--color-forest);">Shellac / Gel Manicure</strong>
-                      <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin: 2px 0 0 0;">14-day zero-dry-time chip resistant LED gel</p>
-                    </div>
-                  </div>
-                </label>
-
-                <label>
-                  <input type="checkbox" name="escape-item" class="builder-check-input">
-                  <div class="builder-card-box">
-                    <div class="builder-check-indicator">&#10003;</div>
-                    <div>
-                      <strong style="font-size: var(--text-sm); color: var(--color-forest);">Eyebrow or Lip Wax</strong>
-                      <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin: 2px 0 0 0;">Precision arch mapping &amp; soothing blue wax</p>
-                    </div>
-                  </div>
-                </label>
-
-                <label>
-                  <input type="checkbox" name="escape-item" class="builder-check-input">
-                  <div class="builder-card-box">
-                    <div class="builder-check-indicator">&#10003;</div>
-                    <div>
-                      <strong style="font-size: var(--text-sm); color: var(--color-forest);">Airbrush Spray Tan</strong>
-                      <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin: 2px 0 0 0;">Full-body organic streak-free golden bronzing</p>
-                    </div>
-                  </div>
-                </label>
-
-                <label>
-                  <input type="checkbox" name="escape-item" class="builder-check-input">
-                  <div class="builder-card-box">
-                    <div class="builder-check-indicator">&#10003;</div>
-                    <div>
-                      <strong style="font-size: var(--text-sm); color: var(--color-forest);">Ear Candling Treatment</strong>
-                      <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin: 2px 0 0 0;">Gentle thermal vacuum soothing relaxation</p>
-                    </div>
-                  </div>
-                </label>
-
+                  <p class="escape-item-desc">Wash, relaxing scalp massage, precision haircut &amp; blowout</p>
+                </div>
               </div>
 
-              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--color-cream-border); margin-top: var(--space-md);">
-                <span style="font-size: var(--text-xs); color: var(--color-text-muted);">
-                  The Eden Escape is $190.00 total. All 5 services completed in one relaxing 3-hour appointment.
+              <!-- Card 2 -->
+              <div class="escape-item-card is-selected" data-service="1/2 Hr Therapeutic Massage" data-price="40">
+                <div class="escape-checkbox">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="escape-item-content">
+                  <div class="escape-item-header">
+                    <strong class="escape-item-name">1/2 Hr Therapeutic Massage</strong>
+                    <span class="escape-item-val">$40 val</span>
+                  </div>
+                  <p class="escape-item-desc">Targeted back, neck &amp; shoulder deep tension relief</p>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="escape-item-card is-selected" data-service="Express Botanical Facial" data-price="45">
+                <div class="escape-checkbox">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="escape-item-content">
+                  <div class="escape-item-header">
+                    <strong class="escape-item-name">Express Botanical Facial</strong>
+                    <span class="escape-item-val">$45 val</span>
+                  </div>
+                  <p class="escape-item-desc">30-min glow with enzyme cleanse, warm steam &amp; botanical mask</p>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="escape-item-card is-selected" data-service="Deluxe Spa Manicure" data-price="35">
+                <div class="escape-checkbox">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="escape-item-content">
+                  <div class="escape-item-header">
+                    <strong class="escape-item-name">Deluxe Spa Manicure</strong>
+                    <span class="escape-item-val">$35 val</span>
+                  </div>
+                  <p class="escape-item-desc">Nail shaping, cuticle therapy, hand massage &amp; warm paraffin dip</p>
+                </div>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="escape-item-card is-selected" data-service="Basic Whirlpool Pedicure" data-price="50">
+                <div class="escape-checkbox">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="escape-item-content">
+                  <div class="escape-item-header">
+                    <strong class="escape-item-name">Basic Whirlpool Pedicure</strong>
+                    <span class="escape-item-val">$50 val</span>
+                  </div>
+                  <p class="escape-item-desc">Aromatic whirlpool soak, sea salt scrub &amp; callus smoothing</p>
+                </div>
+              </div>
+
+              <!-- Card 6 -->
+              <div class="escape-item-card" data-service="Shellac / Gel Manicure" data-price="35">
+                <div class="escape-checkbox">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="escape-item-content">
+                  <div class="escape-item-header">
+                    <strong class="escape-item-name">Shellac / Gel Manicure</strong>
+                    <span class="escape-item-val">$35 val</span>
+                  </div>
+                  <p class="escape-item-desc">14-day zero-dry-time chip resistant LED light-cured gel</p>
+                </div>
+              </div>
+
+              <!-- Card 7 -->
+              <div class="escape-item-card" data-service="Eyebrow or Lip Wax" data-price="15">
+                <div class="escape-checkbox">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="escape-item-content">
+                  <div class="escape-item-header">
+                    <strong class="escape-item-name">Eyebrow or Lip Wax</strong>
+                    <span class="escape-item-val">$15 val</span>
+                  </div>
+                  <p class="escape-item-desc">Precision arch contouring &amp; soothing organic blue hard wax</p>
+                </div>
+              </div>
+
+              <!-- Card 8 -->
+              <div class="escape-item-card" data-service="Airbrush Spray Tan" data-price="35">
+                <div class="escape-checkbox">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="escape-item-content">
+                  <div class="escape-item-header">
+                    <strong class="escape-item-name">Airbrush Spray Tan</strong>
+                    <span class="escape-item-val">$35 val</span>
+                  </div>
+                  <p class="escape-item-desc">Full-body organic streak-free golden bronzing session</p>
+                </div>
+              </div>
+
+              <!-- Card 9 -->
+              <div class="escape-item-card" data-service="Ear Candling Treatment" data-price="35">
+                <div class="escape-checkbox">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="escape-item-content">
+                  <div class="escape-item-header">
+                    <strong class="escape-item-name">Ear Candling Treatment</strong>
+                    <span class="escape-item-val">$35 val</span>
+                  </div>
+                  <p class="escape-item-desc">Gentle thermal vacuum soothing relaxation &amp; pressure relief</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Dynamic Live Savings & Booking Bar -->
+            <div class="builder-summary-bar">
+              <div class="builder-math-summary">
+                <div class="builder-math-col">
+                  <span class="builder-math-label">Individual Rates:</span>
+                  <span class="builder-math-val" id="builder-original-val">$212.00</span>
+                </div>
+                <div class="builder-math-col">
+                  <span class="builder-math-label">Package Rate:</span>
+                  <span class="builder-math-val price-gold">$190.00 Fixed</span>
+                </div>
+                <div class="builder-math-col">
+                  <span class="builder-math-label">Your Savings:</span>
+                  <span class="builder-math-val save-green" id="builder-savings-val">Save $22.00</span>
+                </div>
+              </div>
+
+              <a id="builder-book-btn" href="book.html" class="btn btn-primary btn-nested">
+                <span id="builder-btn-label">Book Custom Eden Escape ($190)</span>
+                <span class="btn-icon-pod">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
                 </span>
-                <a href="book.html" class="btn btn-primary btn-nested">
-                  <span>Book Custom Eden Escape ($190)</span>
-                  <span class="btn-icon-pod">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                  </span>
-                </a>
-              </div>
-            </form>
+              </a>
+            </div>
 
           </div>
         </div>
@@ -973,5 +1014,97 @@
     </a>
   </div>
 
+  <!-- INTERACTIVE EDEN ESCAPE BUILDER CONTROLLER -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.escape-item-card');
+      const countText = document.getElementById('builder-count-text');
+      const readyPill = document.getElementById('builder-ready-pill');
+      const originalValEl = document.getElementById('builder-original-val');
+      const savingsValEl = document.getElementById('builder-savings-val');
+      const bookBtn = document.getElementById('builder-book-btn');
+      const btnLabel = document.getElementById('builder-btn-label');
+
+      function updateBuilderState() {
+        const selectedCards = Array.from(cards).filter(c => c.classList.contains('is-selected'));
+        const count = selectedCards.length;
+
+        // Calculate itemized sum
+        let totalVal = 0;
+        const selectedNames = [];
+        selectedCards.forEach(c => {
+          totalVal += parseFloat(c.getAttribute('data-price') || 0);
+          selectedNames.push(c.getAttribute('data-service'));
+        });
+
+        // Update counter & badge
+        if (countText) {
+          countText.textContent = count + ' of 5 Selected';
+        }
+        
+        if (readyPill && bookBtn && btnLabel) {
+          if (count === 5) {
+            readyPill.style.display = 'inline-flex';
+            readyPill.innerHTML = '&#10003; Ready to Book';
+            readyPill.style.background = '#2D6A4F';
+            readyPill.style.color = '#FFFFFF';
+            bookBtn.classList.remove('disabled');
+            btnLabel.textContent = 'Book Custom Eden Escape ($190)';
+            bookBtn.href = 'book.html?package=eden-escape&services=' + encodeURIComponent(selectedNames.join(', '));
+          } else {
+            readyPill.style.display = 'inline-flex';
+            readyPill.textContent = count < 5 ? 'Pick ' + (5 - count) + ' more' : 'Deselect ' + (count - 5);
+            readyPill.style.background = '#C5A880';
+            readyPill.style.color = '#141E1C';
+            bookBtn.classList.add('disabled');
+            btnLabel.textContent = 'Select Exactly 5 Services (' + count + '/5)';
+            bookBtn.href = 'javascript:void(0)';
+          }
+        }
+
+        // Update savings math
+        if (originalValEl && savingsValEl) {
+          originalValEl.textContent = '
+</html>
+ + totalVal.toFixed(2);
+          const savings = totalVal - 190;
+          if (savings > 0) {
+            savingsValEl.textContent = 'Save 
+</html>
+ + savings.toFixed(2);
+          } else {
+            savingsValEl.textContent = '$190 Fixed';
+          }
+        }
+
+        // Dim remaining cards if 5 are selected
+        cards.forEach(card => {
+          if (count >= 5 && !card.classList.contains('is-selected')) {
+            card.classList.add('is-dimmed');
+          } else {
+            card.classList.remove('is-dimmed');
+          }
+        });
+      }
+
+      cards.forEach(card => {
+        card.addEventListener('click', function() {
+          const isSelected = this.classList.contains('is-selected');
+          const currentlySelected = document.querySelectorAll('.escape-item-card.is-selected').length;
+
+          if (!isSelected && currentlySelected >= 5) {
+            this.classList.add('shake-card');
+            setTimeout(() => this.classList.remove('shake-card'), 350);
+            return;
+          }
+
+          this.classList.toggle('is-selected');
+          updateBuilderState();
+        });
+      });
+
+      updateBuilderState();
+    });
+  </script>
 </body>
 </html>

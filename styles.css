@@ -2359,92 +2359,223 @@ textarea.form-control,
 
 
 /* --------------------------------------------------------------------------
-   19. PURE CSS EDEN ESCAPE PACKAGE BUILDER (WITH CSS COUNTER)
+   19. INTERACTIVE EDEN ESCAPE PACKAGE BUILDER & VALUE CALCULATOR
    -------------------------------------------------------------------------- */
-.package-builder-form {
-  counter-reset: package-counter;
-}
-
-.package-builder-grid {
+.escape-builder-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-md);
   margin: var(--space-lg) 0;
 }
 
-@media (min-width: 768px) {
-  .package-builder-grid {
-    grid-template-columns: repeat(3, 1fr);
+@media (max-width: 992px) {
+  .escape-builder-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.builder-check-input {
-  display: none;
+@media (max-width: 600px) {
+  .escape-builder-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.builder-check-input:checked {
-  counter-increment: package-counter;
-}
-
-.builder-card-box {
-  padding: var(--space-md);
-  background-color: var(--color-cream-card);
-  border: 1.5px solid var(--color-cream-border);
-  border-radius: var(--radius-md);
-  cursor: pointer;
+.escape-item-card {
+  background-color: #FAF8F5;
+  border: 1.5px solid rgba(197, 168, 128, 0.35);
+  border-radius: 12px;
+  padding: 1.15rem 1.25rem;
   display: flex;
   align-items: flex-start;
-  gap: var(--space-sm);
-  transition: all var(--duration-fast) var(--ease-out);
-  height: 100%;
+  gap: 0.85rem;
+  cursor: pointer;
+  transition: all 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  position: relative;
 }
 
-.builder-card-box:hover {
+.escape-item-card:hover:not(.is-dimmed) {
   border-color: var(--color-gold);
+  background-color: #FFFFFF;
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(20, 30, 28, 0.08);
 }
 
-.builder-check-indicator {
-  width: 1.25rem;
-  height: 1.25rem;
-  border-radius: var(--radius-xs);
-  border: 1.5px solid var(--color-cream-border);
+.escape-item-card.is-selected {
+  background-color: #141E1C !important;
+  border-color: var(--color-gold) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(20, 30, 28, 0.18);
+}
+
+.escape-item-card.is-dimmed {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background-color: var(--color-cream-subtle);
+  border-color: var(--color-cream-border);
+}
+
+.escape-checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(197, 168, 128, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #FFFFFF;
+  color: transparent;
   flex-shrink: 0;
   margin-top: 2px;
-  background-color: #FFFFFF;
-  transition: all var(--duration-fast) var(--ease-out);
+  transition: all 180ms ease;
 }
 
-.builder-check-input:checked + .builder-card-box {
-  border-color: var(--color-forest);
-  background-color: var(--color-cream-subtle);
+.escape-item-card.is-selected .escape-checkbox {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: #141E1C;
 }
 
-.builder-check-input:checked + .builder-card-box .builder-check-indicator {
-  background-color: var(--color-forest);
-  border-color: var(--color-forest);
-  color: var(--color-gold);
+.escape-item-content {
+  flex-grow: 1;
 }
 
-.builder-counter-bar {
-  background-color: var(--color-forest);
-  color: var(--color-cream);
-  padding: var(--space-md) var(--space-lg);
-  border-radius: var(--radius-lg);
+.escape-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.escape-item-name {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-forest);
+  transition: color 180ms ease;
+}
+
+.escape-item-card.is-selected .escape-item-name {
+  color: #FAF8F5 !important;
+}
+
+.escape-item-val {
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--color-gold-hover);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.escape-item-card.is-selected .escape-item-val {
+  color: var(--color-gold-light) !important;
+}
+
+.escape-item-desc {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.45;
+  transition: color 180ms ease;
+}
+
+.escape-item-card.is-selected .escape-item-desc {
+  color: rgba(250, 248, 245, 0.75) !important;
+}
+
+/* Status Counter Badge */
+.builder-status-badge {
+  background-color: #141E1C;
+  color: #FAF8F5;
+  padding: 0.6rem 1.15rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(197, 168, 128, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.builder-ready-pill {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  background: #2D6A4F;
+  color: #FFFFFF;
+  transition: all 200ms ease;
+}
+
+/* Summary / Math Bar */
+.builder-summary-bar {
+  background: #141E1C;
+  border: 1px solid rgba(197, 168, 128, 0.4);
+  border-radius: 16px;
+  padding: 1.25rem 1.75rem;
+  margin-top: 1.75rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: var(--space-md);
+  gap: 1.25rem;
 }
 
-.builder-counter-display::after {
-  content: counter(package-counter) " of 5 selected";
+.builder-math-summary {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.builder-math-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.builder-math-label {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(250, 248, 245, 0.6);
+  font-weight: 600;
+}
+
+.builder-math-val {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
   font-weight: 700;
+  color: #FAF8F5;
+}
+
+.builder-math-val.price-gold {
   color: var(--color-gold);
+  font-size: 1.45rem;
+}
+
+.builder-math-val.save-green {
+  color: #52B788;
+  font-size: 1.15rem;
+}
+
+@keyframes shakeCard {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.shake-card {
+  animation: shakeCard 300ms ease-in-out;
+}
+
+.btn.disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -4467,32 +4598,22 @@ textarea.form-control,
 /* Combination Showcase (Two services. One afternoon at Eden.) */
 .combo-section {
   background-color: var(--color-cream-subtle);
-  padding: 5rem 0;
-  border-bottom: 1px solid var(--color-cream-border);
 }
 
-.combo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xl);
-  margin-top: var(--space-2xl);
+@keyframes shakeCard {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
 }
 
-.combo-card {
-  background-color: var(--color-cream-card);
-  border: 1px solid var(--color-cream-border);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
-  transition: all var(--duration-normal) var(--ease-out);
+.shake-card {
+  animation: shakeCard 300ms ease-in-out;
 }
 
-.combo-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--color-gold);
+.btn.disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .combo-media {
