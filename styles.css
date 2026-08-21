@@ -5574,7 +5574,8 @@ textarea.form-control,
    ========================================================================== */
 .banner-cta,
 section.banner-cta {
-  background: radial-gradient(circle at 50% 40%, rgba(197, 168, 128, 0.1) 0%, #141E1C 75%) !important;
+  background-color: #141E1C !important;
+  background-image: none !important;
   color: #FAF8F5 !important;
   padding: 6.5rem 0 !important;
   position: relative;
