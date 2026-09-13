@@ -164,6 +164,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   font-weight: 500;
   letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 
 h1 {
@@ -1524,6 +1525,20 @@ p:last-child {
   margin-bottom: var(--space-lg);
 }
 
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+@media (max-width: 640px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-sm) !important;
+  }
+}
+
 .form-label {
   display: block;
   font-size: var(--text-xs);
@@ -1546,12 +1561,13 @@ p:last-child {
   width: 100%;
   padding: 0.95rem 1.2rem;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--color-forest);
   background-color: #FAF8F5;
   border: 1.5px solid #E2DACF;
   border-radius: 12px;
+  min-height: 48px;
   transition: border-color var(--duration-fast) var(--ease-out),
               background-color var(--duration-fast) var(--ease-out),
               box-shadow var(--duration-fast) var(--ease-out);
@@ -1588,7 +1604,7 @@ textarea.form-control,
   width: 100%;
   padding: 1rem 1.2rem;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--color-forest);
   background-color: #FAF8F5;
@@ -5034,15 +5050,19 @@ textarea.form-control,
 /* Comparison Matrix Table */
 .matrix-container {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-radius: var(--radius-xl);
   border: 1px solid rgba(197, 168, 128, 0.35);
   background: var(--color-cream-card);
   box-shadow: var(--shadow-sm);
   margin-top: var(--space-xl);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold) var(--color-cream-subtle);
 }
 
 .matrix-table {
   width: 100%;
+  min-width: 720px;
   border-collapse: collapse;
   text-align: left;
   font-size: var(--text-sm);
@@ -5763,13 +5783,33 @@ section.banner-cta {
   }
 
   body {
-    padding-bottom: 72px !important; /* Prevents sticky mobile bar overlap */
+    padding-bottom: calc(74px + env(safe-area-inset-bottom, 0px)) !important; /* Prevents sticky mobile bar overlap with home indicator */
   }
 
   .container {
     padding-left: 1.15rem !important;
     padding-right: 1.15rem !important;
     max-width: 100% !important;
+  }
+
+  /* Form Controls iOS Auto-Zoom Guard & Touch Sizing */
+  .form-control,
+  .form-input,
+  textarea.form-control,
+  .form-textarea,
+  select.form-control {
+    font-size: 16px !important; /* Strictly prevents iOS Safari auto-zoom on mobile */
+    min-height: 48px !important;
+  }
+
+  /* Minimum 44px Touch Target Floor */
+  .btn,
+  .home-pill,
+  .concern-tab-btn,
+  .escape-item-card,
+  .gc-amount-pill,
+  .mobile-menu-btn {
+    min-height: 44px;
   }
 
   /* Header & Navigation */
@@ -5943,6 +5983,10 @@ section.banner-cta {
     -webkit-overflow-scrolling: touch !important;
   }
 
+  .mobile-scroll-hint {
+    display: block !important;
+  }
+
   /* Gift Certificates */
   .gc-customizer-grid {
     grid-template-columns: 1fr !important;
@@ -5957,7 +6001,16 @@ section.banner-cta {
     max-width: 100% !important;
     height: auto !important;
     aspect-ratio: 16/10 !important;
-    padding: 1.25rem !important;
+    padding: clamp(1rem, 3.5vw, 1.75rem) !important;
+  }
+
+  .gc-card-value {
+    font-size: clamp(1.75rem, 5vw, 2.5rem) !important;
+  }
+
+  .gc-card-seal {
+    width: clamp(2rem, 6vw, 3rem) !important;
+    height: clamp(2rem, 6vw, 3rem) !important;
   }
 
   .gc-amount-selector {
@@ -6064,7 +6117,7 @@ section.banner-cta {
     text-align: center !important;
   }
 
-  /* Sticky Mobile Bar */
+  /* Sticky Mobile Bar with Safe-Area Inset */
   .mobile-sticky-bar {
     display: flex !important;
     position: fixed !important;
@@ -6076,7 +6129,7 @@ section.banner-cta {
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
     border-top: 1px solid rgba(197, 168, 128, 0.35) !important;
-    padding: 0.65rem 1.15rem !important;
+    padding: 0.65rem 1.15rem calc(0.65rem + env(safe-area-inset-bottom, 0px)) 1.15rem !important;
     align-items: center !important;
     justify-content: space-between !important;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25) !important;
